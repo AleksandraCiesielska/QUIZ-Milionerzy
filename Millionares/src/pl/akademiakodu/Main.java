@@ -11,8 +11,7 @@ import java.util.List;
 
 import java.util.Scanner;
 
-public class Main extends JFrame implements ActionListener
-{
+public class Main extends JFrame implements ActionListener {
 
     private JButton buttonYes;
     private JButton buttonNo;
@@ -68,6 +67,7 @@ public class Main extends JFrame implements ActionListener
 //układ naszego okna 3 w pionie 1 w poziomie
         setLayout(new GridLayout(3, 1)); // 3 rzędy i w każdym 1 element
     }
+
     public static void main(String[] args) {
 //odpalenie okna w wątku
         SwingUtilities.invokeLater(new Runnable() {        // odpowiada za to czy nam zrobi runa
@@ -83,13 +83,12 @@ public class Main extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         //kolejne pytanie musi się mieścić w liście
-        if (currentQuestion <questionList.size()) {
-            JButton clickedButton =(JButton) e.getSource();
-           Question currentQuestion = questionList.get(this.currentQuestion);
-            if (clickedButton == buttonYes && currentQuestion.isCorrect()
-                 numberOfPoints++;
-            if (clickedButton == buttonNo && currentQuestion.isCorrect())
-            {
+        if (currentQuestion < questionList.size()) {
+            JButton clickedButton = (JButton) e.getSource();
+            Question currentQuestion = questionList.get(this.currentQuestion);
+            if (clickedButton == buttonYes && currentQuestion.isCorrect())
+                numberOfPoints++;
+            if (clickedButton == buttonNo && currentQuestion.isCorrect()) {
                 numberOfPoints++;
             }
         }
@@ -103,3 +102,4 @@ public class Main extends JFrame implements ActionListener
         }
 
     }
+}
